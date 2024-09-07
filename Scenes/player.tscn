@@ -157,7 +157,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ticud")
 }],
 "loop": true,
-"name": &"Jump up",
+"name": &"Jump",
 "speed": 10.0
 }, {
 "frames": [{
@@ -203,8 +203,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_npog7")
 }],
 "loop": false,
-"name": &"jump end",
-"speed": 5.0
+"name": &"fall",
+"speed": 7.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -216,5 +216,6 @@ shape = SubResource("RectangleShape2D_45en1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eo6hw")
-animation = &"Idle"
-frame_progress = 0.709545
+animation = &"fall"
+frame = 1
+frame_progress = 1.0
