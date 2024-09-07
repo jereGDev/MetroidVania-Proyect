@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://be2asgcdl7ja" path="res://assets/sprites/player/_JumpFallInbetween.png" id="4_eup3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45en1"]
-size = Vector2(14, 38)
+size = Vector2(12, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqbwn"]
 atlas = ExtResource("1_3g0h6")
@@ -211,11 +211,13 @@ animations = [{
 script = ExtResource("1_1q48u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 21)
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_45en1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eo6hw")
-animation = &"fall"
-frame = 1
-frame_progress = 1.0
+animation = &"Idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_speed = 8.0
