@@ -27,6 +27,8 @@ func _physics_process(delta):
 	move_and_slide()
 	Animated()
 
+
+#Created a function to manage all player animations
 func Animated():
 	#Asks if player is in floor;
 	if is_on_floor():
