@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Proyecto MetroidVania"
-run/main_scene="res://Scenes/base_scene.tscn"
+run/main_scene="res://Scenes/worldScenes/TestScene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,11 +19,20 @@ config/icon="res://icon.svg"
 
 folder_colors={
 "res://Scenes/": "blue",
+"res://Scenes/enemyScenes/": "red",
+"res://Scenes/npcScenes/": "purple",
+"res://Scenes/player/": "teal",
 "res://assets/": "gray",
 "res://assets/backgrounds/": "orange",
 "res://assets/music/": "pink",
 "res://assets/sprites/": "green",
-"res://scripts/": "yellow"
+"res://assets/sprites/enemies/": "red",
+"res://assets/sprites/npcs/": "purple",
+"res://assets/sprites/objects/": "orange",
+"res://assets/sprites/player/": "teal",
+"res://scripts/": "yellow",
+"res://scripts/enemyScript/": "red",
+"res://scripts/playerScripts/": "teal"
 }
 
 [rendering]
