@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-@export var SPEED:int = 25
+@export var SPEED:int = 35
 var playerChase:bool = false
 var player = null
 @onready var animations = $AnimatedSprite2D
 
+#Gets the player node
+#This way player is not null
 func _ready():
 	player = get_node("/root/BaseScene/Player")
 
@@ -22,6 +24,7 @@ func _physics_process(delta):
 #Handle player detection for movement when players enters the area
 func _on_detection_area_body_entered(body):
 	if body.name == "Player":
+		playerChase = true
 		print("El jugador ENTRO del area de detección")
 	else:
 		return
@@ -30,6 +33,7 @@ func _on_detection_area_body_entered(body):
 #Handle player detection for movement when players leaves the area
 func _on_detection_area_body_exited(body):
 	if body.name == "Player":
+		playerChase = false
 		print("El jugador SALIO del area de detección")
 	else:
 		return
