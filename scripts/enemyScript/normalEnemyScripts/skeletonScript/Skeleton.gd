@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED:int = 35
+const SPEED:float = 30.0
 var playerChase:bool = false
 var player = null
 @onready var animations = $AnimatedSprite2D
@@ -17,7 +17,9 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 	
 	if playerChase:
-		position += (player.position - position) / SPEED
+		var direction = (player.position - position).normalized()
+		velocity.x = direction.x * SPEED
+		
 	move_and_slide()
 	animatedEnemy()
 
@@ -25,24 +27,25 @@ func _physics_process(delta):
 func _on_detection_area_body_entered(body):
 	if body.name == "Player":
 		playerChase = true
-		print("El jugador ENTRO del area de detección")
 	else:
 		return
-
 
 #Handle player detection for movement when players leaves the area
 func _on_detection_area_body_exited(body):
 	if body.name == "Player":
 		playerChase = false
-		print("El jugador SALIO del area de detección")
+		velocity.x = 0
+		velocity.y = 0
 	else:
 		return
 
 #Handle the skeleton animation
 func animatedEnemy():
 	if is_on_floor():
-		if velocity.x:
+		#Ask if velocity in X is different than 0;
+		if abs(velocity.x) > 0:
 			animations.play("walk")
+			#Depending on X is greater or lower than 0, it will flip the sprite;
 			if velocity.x < 0:
 				animations.flip_h = true
 			if velocity.x > 0:

@@ -15,7 +15,7 @@ position = Vector2(581, 637)
 shape = SubResource("RectangleShape2D_kwsfv")
 
 [node name="Player" parent="." instance=ExtResource("1_u2syk")]
-position = Vector2(184, 561)
+position = Vector2(447, 581)
 
 [node name="Skeleton" parent="." instance=ExtResource("2_opa50")]
 position = Vector2(614, 607)

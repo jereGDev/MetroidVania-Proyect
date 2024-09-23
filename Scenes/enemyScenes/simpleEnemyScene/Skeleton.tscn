@@ -321,7 +321,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxv83"]
-size = Vector2(172, 28.5)
+size = Vector2(172, 8)
 
 [node name="Skeleton" type="CharacterBody2D"]
 script = ExtResource("1_g0u14")
@@ -337,6 +337,7 @@ frame_progress = 0.557564
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="DetectionHitBox" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_hxv83")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
