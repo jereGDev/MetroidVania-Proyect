@@ -6,9 +6,7 @@ var player = null
 @onready var animations = $AnimatedSprite2D
 
 func _ready():
-	player = get_node("/root/BaseScene/Player/Player")
-	if player:
-		print("PILLA AL JUGADOR")
+	player = get_node("/root/BaseScene/Player")
 
 #Handle skeleton movement
 func _physics_process(delta):
@@ -23,16 +21,16 @@ func _physics_process(delta):
 
 #Handle player detection for movement when players enters the area
 func _on_detection_area_body_entered(body):
-	if body.name == "player":
-		playerChase = true
+	if body.name == "Player":
+		print("El jugador ENTRO del area de detección")
 	else:
 		return
 
 
 #Handle player detection for movement when players leaves the area
 func _on_detection_area_body_exited(body):
-	if body.name == "player":
-		playerChase = false
+	if body.name == "Player":
+		print("El jugador SALIO del area de detección")
 	else:
 		return
 
