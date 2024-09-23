@@ -8,7 +8,7 @@ var player = null
 #Gets the player node
 #This way player is not null
 func _ready():
-	player = get_node("/root/BaseScene/Player")
+	player = get_node("/root/TestScene/Player")
 
 #Handle skeleton movement
 func _physics_process(delta):
@@ -42,7 +42,7 @@ func _on_detection_area_body_exited(body):
 #Handle the skeleton animation
 func animatedEnemy():
 	if is_on_floor():
-		#Ask if velocity in X is different than 0;
+		#Ask if the absolute value of velocity in X is different than 0;
 		if abs(velocity.x) > 0:
 			animations.play("walk")
 			#Depending on X is greater or lower than 0, it will flip the sprite;
