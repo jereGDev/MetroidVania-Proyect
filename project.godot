@@ -32,6 +32,7 @@ folder_colors={
 "res://assets/sprites/player/": "teal",
 "res://scripts/": "yellow",
 "res://scripts/enemyScript/": "red",
+"res://scripts/npcScript/": "purple",
 "res://scripts/playerScripts/": "teal"
 }
 
