@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 const SPEED:float = 150.0
 const JUMP_VELOCITY:float = -400.0
+var playerLife:int = 50
+var playerAttackStat:int = 5
 @onready var animations = $AnimatedSprite2D
 
 func _physics_process(delta):
-
 	
 	# Add the gravity.
 	if not is_on_floor():

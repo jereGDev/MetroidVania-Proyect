@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 const SPEED:float = 30.0
 var playerChase:bool = false
+var skeletonAttack:int = 10
+var skeletonCanAttack:bool = false
+var skeletonLife:int = 15
 var player = null
 @onready var animations = $AnimatedSprite2D
 
