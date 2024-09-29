@@ -28,6 +28,7 @@ func _physics_process(delta):
 	var directionx = Input.get_axis("MoveLeft", "MoveRight")
 	
 	#If player is not attacking the player can move
+	
 	if !playerAttacking:
 		if directionx:
 			#Moves the player
@@ -35,6 +36,14 @@ func _physics_process(delta):
 		else:
 			#End the movement
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_on_floor():
+			if Input.is_action_just_pressed("Attack"):
+				playerAttacking = true
+
+	else:
+		animations.play("Attack1")
+		await (animations.animation_finished)
+		playerAttacking = false
 	move_and_slide()
 	Animated()
 
