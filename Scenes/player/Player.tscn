@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://4w5fgdvtiplr"]
+[gd_scene load_steps=46 format=3 uid="uid://4w5fgdvtiplr"]
 
 [ext_resource type="Script" path="res://scripts/playerScripts/player.gd" id="1_1q48u"]
 [ext_resource type="Texture2D" uid="uid://cgux2760ep1qx" path="res://assets/sprites/player/_Idle.png" id="1_3g0h6"]
@@ -168,7 +168,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Attack1",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -289,6 +289,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46kpp"]
+size = Vector2(54, 39)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1q48u")
 
@@ -298,10 +301,16 @@ shape = SubResource("RectangleShape2D_45en1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eo6hw")
-animation = &"Attack1"
-frame = 3
+animation = &"Attack2"
+frame = 5
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 position_smoothing_speed = 8.0
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="AttackCollision" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(39, 20)
+shape = SubResource("RectangleShape2D_46kpp")

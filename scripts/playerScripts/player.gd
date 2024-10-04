@@ -6,6 +6,7 @@ var playerLife:int = 50
 var playerAttackStat:int = 5
 var playerCanAttack:bool = true
 var playerAttacking:bool = false
+var attackCount:int = 0
 var enemy = null
 @onready var animations = $AnimatedSprite2D
 
@@ -27,8 +28,8 @@ func _physics_process(delta):
 	
 	var directionx = Input.get_axis("MoveLeft", "MoveRight")
 	
-	#If player is not attacking the player can move
 	
+	#If player is not attacking the player can move
 	if !playerAttacking:
 		if directionx:
 			#Moves the player
@@ -39,13 +40,12 @@ func _physics_process(delta):
 		if is_on_floor():
 			if Input.is_action_just_pressed("Attack"):
 				playerAttacking = true
-
+				attackCount += 1
+		move_and_slide()
+		Animated()
 	else:
-		animations.play("Attack1")
-		await (animations.animation_finished)
-		playerAttacking = false
-	move_and_slide()
-	Animated()
+		AttackAnimation()
+
 
 #func Attack():
 	#if Input.is_action_just_pressed("ui_accept"):
@@ -68,13 +68,22 @@ func Animated():
 				animations.flip_h = true
 			if velocity.x > 0:
 				animations.flip_h = false
-		else:
-			animations.play("Attack1")
-			await (animations.animation_finished)
-			playerAttacking = false
+		#else:
+			#animations.play("Attack1")
+			#await (animations.animation_finished)
+			#playerAttacking = false
 	else:
 		#Will display the jump animation if it is not on floor
 		if velocity.y < 0:
 			animations.play("Jump")
 		else:
 			animations.play("fall")
+
+func AttackAnimation():
+	#Alternates between 2 attacks animations
+	if attackCount % 2 == 1:
+		animations.play("Attack1")
+	else:
+		animations.play("Attack2")
+	await (animations.animation_finished)
+	playerAttacking = false
