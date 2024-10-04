@@ -271,7 +271,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pa5p1")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
 "speed": 16.0
 }, {
@@ -331,7 +331,8 @@ shape = SubResource("RectangleShape2D_d2fde")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_krhem")
-animation = &"attack"
+animation = &"Idle"
+frame_progress = 0.557564
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
